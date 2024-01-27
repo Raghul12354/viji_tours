@@ -1,6 +1,6 @@
 const Comp = () => {
   return (
-    <div className="w-screen h-screen flex items-center justify-center text-3xl">
+    <div className="w-screen flex items-center h-20 bg-green-500 justify-center text-3xl">
       hey there this is viji tours and travels here
     </div>
   );
