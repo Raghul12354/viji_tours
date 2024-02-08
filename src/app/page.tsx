@@ -1,11 +1,18 @@
 import Hero from "@/components/hero/Hero";
-import Navbar from "@/components/navbar/Navbar";
+import PopularTours from "@/components/popularTours/PopularTours";
+import Testimonials from "@/components/testimonials/Testimonials";
+import Footer from "@/components/footer/Footer";
+import ContactUs from "@/components/contact_us/ContactUs";
 
 export default function Home() {
   return (
     <main>
-      {/* <Navbar /> */}
       <Hero />
+      <PopularTours />
+      why choose us 
+      <Testimonials />
+      <ContactUs />
+      <Footer />
     </main>
   );
 }
