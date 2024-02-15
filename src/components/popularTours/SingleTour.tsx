@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const SingleTour = () => {
   return (
-    <Link href='/' className="relative h-[350px] w-full flex flex-col text-white items-center justify-center">
+    <Link href='/wayanad' className="relative h-[350px] w-full flex flex-col text-white items-center justify-center">
       {/* transform transition-transform duration-300 hover:scale-150 */}
       <Image
         src="https://images.unsplash.com/photo-1542396601-dca920ea2807?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8fA%3D%3D"

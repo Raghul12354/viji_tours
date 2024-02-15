@@ -1,4 +1,8 @@
+"use client";
+import React from "react";
 import Image from "next/image";
+
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -35,9 +39,13 @@ const data = [
 ];
 
 const Hero = () => {
+  const autoPlay = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
   return (
     <section className="max-h-full w-screen bg-black">
       <Carousel
+        plugins={[autoPlay.current]}
         opts={{
           align: "start",
           loop: true,
@@ -55,8 +63,7 @@ const Hero = () => {
                   src={img}
                   alt={title}
                   fill
-                  priority={true}
-                  quality={100}
+                  priority
                   sizes="100vw"
                   className="object-cover -z-10 opacity-70"
                 />

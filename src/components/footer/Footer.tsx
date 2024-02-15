@@ -4,7 +4,7 @@ import ArrowUp from "../Icons/ArrowUp";
 
 const Footer = () => {
   return (
-    <footer className="px-40 bg-custom_white pt-32 text-">
+    <footer className="px-40 bg-custom_white pt-32 shadow-2xl">
       <div className="grid grid-cols-3 gap-52  h-[40vh]">
         {/* first  */}
         <div className="flex flex-col">
@@ -24,9 +24,9 @@ const Footer = () => {
           </p>
           <div>
             <p>follow us</p>
-            <Link href=''>instagram</Link>
-            <Link href=''>instagram</Link>
-            <Link href=''>instagram</Link>
+            <Link href="">instagram</Link>
+            <Link href="">instagram</Link>
+            <Link href="">instagram</Link>
           </div>
         </div>
         {/* second */}

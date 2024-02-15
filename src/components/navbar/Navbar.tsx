@@ -1,4 +1,5 @@
 "use client";
+// shadcn sheet change for mobile.
 import { useState } from "react";
 
 import Image from "next/image";
@@ -17,7 +18,7 @@ const LinkComp = ({
 }) => {
   return (
     <Link
-      className="text-base md:text-xl font-medium capitalize"
+      className="text-base md:text-xl font-medium capitalize hover:opacity-70"
       href={linkProp}
     >
       {linkName}
@@ -59,8 +60,8 @@ const Navbar = () => {
       >
         <LinkComp linkProp="/" linkName="home" />
         <LinkComp linkProp="/about" linkName="about" />
-        <LinkComp linkProp="destinations" linkName="destinations" />
-        <LinkComp linkProp="contact" linkName="contact" />
+        <LinkComp linkProp="/destinations" linkName="destinations" />
+        <LinkComp linkProp="/contact" linkName="contact" />
         <Button classProp="px-6 py-2 text-base text-black block md:hidden" />
       </nav>
       {/* btn */}
