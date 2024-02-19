@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.footer_Icons {
+  @apply w-7 h-7 opacity-70 hover:opacity-100 mt-2;
+}
+
+.footer_title {
+  @apply text-2xl font-semibold;
+}
+.input_Styles{
+  @apply border-b-2 border-black bg-transparent focus:outline-none;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

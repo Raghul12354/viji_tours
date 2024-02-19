@@ -1,6 +1,6 @@
 const Testimonials = () => {
   return (
-    <section className="px-40 w-screen">
+    <section className="md:px-40 w-screen">
       <h2 className="text-4xl font-medium text-center">Testimonials</h2>
       <p className="text-2xl my-3 text-center">What our clients say about us</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10 mt-20">

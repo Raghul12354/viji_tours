@@ -67,16 +67,17 @@ const Hero = () => {
                   sizes="100vw"
                   className="object-cover -z-10 opacity-70"
                 />
-                <div className="">
-                  <h1 className="text-5xl mb-5 font-medium">{title}</h1>
-                  <p className="w-[60%] mx-auto text-base">{desc}</p>
+                <div>
+                  <h1 className="text-3xl md:text-5xl mb-5 font-semibold">{title}</h1>
+                  <p className="w-[60%] mx-auto text-sm md:text-base">{desc}</p>
                 </div>
               </CarouselItem>
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="absolute top-1/2 left-1/2 transform -translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none" />
-        <CarouselNext className="absolute top-1/2 right-1/2 transform translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none" />
+        <CarouselPrevious className="absolute top-1/2 left-1/2 transform -translate-x-[11rem] md:-translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-16 md:h-16" />
+
+        <CarouselNext className="absolute top-1/2 right-1/2 transform translate-x-[11rem] md:translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-16 md:h-16" />
       </Carousel>
     </section>
   );

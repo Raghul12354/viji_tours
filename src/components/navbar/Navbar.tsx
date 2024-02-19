@@ -38,7 +38,7 @@ const Navbar = () => {
       {/* logo (too large logo) */}
       <Link
         href="/"
-        className="relative md:h-[100px] md:w-[128px] w-[128px] h-[60px]"
+        className="relative md:h-[100px] h-[60px] md:w-[128px] w-[80px]"
       >
         <Image
           src="/logo/Viji tours & Travels.png"
@@ -48,7 +48,7 @@ const Navbar = () => {
           fill
           priority={true}
           quality={100}
-          sizes="(min-width: 200px) 128px, (min-width: 680px) calc(32.5vw - 119px), calc(100vw - 568px)"
+          sizes="(min-width: 300px) 128px, (min-width: 680px) calc(32.5vw - 119px), calc(100vw - 568px)"
           className="object-contain"
         />
       </Link>
@@ -70,11 +70,11 @@ const Navbar = () => {
       <div className="block md:hidden">
         {showLinks ? (
           <button onClick={handleLinks}>
-            <CloseIcon classProp="w-10 h-10 cursor-pointer " />
+            <CloseIcon classProp="w-10 h-10 cursor-pointer" />
           </button>
         ) : (
           <button onClick={handleLinks}>
-            <MenuIcon classProp="w-10 h-10 cursor-pointer " />
+            <MenuIcon classProp="w-10 h-10 cursor-pointer" />
           </button>
         )}
       </div>
