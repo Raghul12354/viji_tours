@@ -13,7 +13,7 @@ import {
 
 const ContactUs = () => {
   return (
-    <section className="px-6 md:px-40 h-auto w-screen relative bg-custom_white shadow-2xl md:my-20 my-10 py-10 overflow-hidden">
+    <section className="px-6 md:px-40 h-auto w-screen relative bg-custom_white shadow-2xl my-10 py-10 overflow-hidden">
       <div className="mb-7">
         <h3 className="text-2xl md:text-4xl font-semibold capitalize mb-3">
           ContactUs

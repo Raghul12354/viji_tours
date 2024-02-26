@@ -1,9 +1,10 @@
+import TitleComp from "../titleComp/TitleComp";
+
 const Testimonials = () => {
   return (
-    <section className="md:px-40 w-screen">
-      <h2 className="text-4xl font-medium text-center">Testimonials</h2>
-      <p className="text-2xl my-3 text-center">What our clients say about us</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10 mt-20">
+    <section className="p-6 pt-20 md:px-40 w-screen">
+      <TitleComp classProp="place-items-center text-center" subtitles="what our" title="clients say" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10 mt-10">
         <article className="bg-white shadow-xl p-16 rounded-xl">
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 
 import Autoplay from "embla-carousel-autoplay";
@@ -39,7 +39,7 @@ const data = [
 ];
 
 const Hero = () => {
-  const autoPlay = React.useRef(
+  const autoPlay = useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
   return (
@@ -53,7 +53,7 @@ const Hero = () => {
       >
         <CarouselContent>
           {data.map((item, index) => {
-            const { id, img, desc, title } = item;
+            const { img, desc, title } = item;
             return (
               <CarouselItem
                 key={index}
@@ -62,22 +62,25 @@ const Hero = () => {
                 <Image
                   src={img}
                   alt={title}
-                  fill
+                  fill={true}
                   priority
+                  quality={100}
                   sizes="100vw"
                   className="object-cover -z-10 opacity-70"
                 />
                 <div>
-                  <h1 className="text-3xl md:text-5xl mb-5 font-semibold">{title}</h1>
+                  <h1 className="text-3xl md:text-5xl mb-5 font-semibold">
+                    {title}
+                  </h1>
                   <p className="w-[60%] mx-auto text-sm md:text-base">{desc}</p>
                 </div>
               </CarouselItem>
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="absolute top-1/2 left-1/2 transform -translate-x-[11rem] md:-translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-16 md:h-16" />
+        <CarouselPrevious className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-[11rem] md:-translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-12 md:h-12" />
 
-        <CarouselNext className="absolute top-1/2 right-1/2 transform translate-x-[11rem] md:translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-16 md:h-16" />
+        <CarouselNext className="hidden md:block absolute top-1/2 right-1/2 transform translate-x-[11rem] md:translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-12 md:h-12" />
       </Carousel>
     </section>
   );

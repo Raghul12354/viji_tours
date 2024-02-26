@@ -13,12 +13,13 @@ const SingleItem = ({ desc }: { desc: string }) => {
 
 const WhyChooseUs = () => {
   return (
-    <div className="px-6 md:px-40 min-h-full w-screen py-20 grid grid-cols-1 md:grid-cols-2 place-items-center md:gap-28 gap-10">
+    <div className="px-6 md:px-40 min-h-full w-screen py-10 grid grid-cols-1 md:grid-cols-2 place-items-center md:gap-28 gap-10">
       <aside className="relative h-[250px] md:h-[500px] w-full bg-black order-2 md:order-1">
         <Image
           src="/whyChooseUs/whyChoose-bg.jpg"
           alt=""
           fill
+          // sizes="(min-width: 780px) calc(50vw - 216px), calc(100vw - 48px)"
           className="object-cover opacity-80"
         />
       </aside>

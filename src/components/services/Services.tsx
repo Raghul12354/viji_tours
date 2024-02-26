@@ -1,23 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import TitleComp from "../titleComp/TitleComp";
 
 const Services = () => {
   return (
-    <section className="px-6 md:px-40 min-h-full min-w-full py-7 md:py-12">
-      <div>
-        <h1 className="text-3xl md:text-4xl font-semibold mb-2 md:mb-4">
-          Services
-        </h1>
-        <p className="text-gray-500 text-sm md:text-base md:w-[80%]">
-          Discover the world with our exceptional tours and travel packages.
-          From breathtaking landscapes to vibrant cultures, we offer
-          unforgettable experiences tailored to your preferences. Whether you're
-          seeking adventure, relaxation, or cultural immersion, our expertly
-          curated tours guarantee an enriching journey. Join us and embark on
-          your next unforgettable adventure!
-        </p>
-      </div>
-
+    <section
+      id="services"
+      className="px-6 md:px-40 min-h-screen min-w-full pb-10 md:pb-20 flex flex-col justify-center"
+    >
+      <TitleComp
+        classProp="place-items-center mb-8 md:mb-16"
+        subtitles="what is"
+        title="our services"
+      />
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 place-items-center mt-5 md:mt-10">
         <Link
           href="/destinations"
@@ -27,7 +22,8 @@ const Services = () => {
             src="/services/tour_bg.jpg"
             alt="tour_bg"
             fill
-            className="opacity-70 transition-transform duration-300
+            sizes="(min-width: 780px) calc(50vw - 180px), calc(100vw - 48px)"
+            className="opacity-70 hover:opacity-90 transition-transform duration-300
               hover:scale-110 z-10"
           />
           <div className="relative flex items-center justify-center h-full">
@@ -49,7 +45,8 @@ const Services = () => {
             src="/services/travels.jpg"
             alt="travels_bg"
             fill
-            className="opacity-70 transition-transform duration-300
+            sizes="(min-width: 780px) calc(50vw - 180px), calc(100vw - 48px)"
+            className="opacity-70 hover:opacity-90 transition-transform duration-300
               hover:scale-110 z-10"
           />
           <div className="relative flex items-center justify-center h-full">

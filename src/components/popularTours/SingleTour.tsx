@@ -1,22 +1,43 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
-const SingleTour = () => {
+const SingleTour = ({
+  gridClass,
+  imgProp,
+  altProp,
+  titleProp,
+  cityProp,
+  linkProp,
+}: {
+  gridClass: string;
+  imgProp: string;
+  altProp: string;
+  titleProp: string;
+  cityProp: string;
+  linkProp: string;
+}) => {
   return (
-    <Link href='/wayanad' className="relative h-[350px] w-full flex flex-col text-white items-center justify-center">
-      {/* transform transition-transform duration-300 hover:scale-150 */}
+    <Link
+      href={linkProp}
+      className={`${gridClass} h-[200px] relative grid grid-cols-1 items-end pb-7 text-white`}
+    >
       <Image
-        src="https://images.unsplash.com/photo-1542396601-dca920ea2807?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8fA%3D%3D"
-        alt=""
+        src={imgProp}
+        alt={altProp}
         fill
-        className="-z-10 object-cover rounded-xl"
+        sizes="100vw"
+        className="object-cover -z-10 rounded-2xl"
       />
-      <h4 className="text-5xl font-medium mb-5">Wayanad Tour</h4>
-      <button className="bg-yellow-400 capitalize px-4 py-2 rounded-lg">
-        see more
-      </button>
+      <div className="flex justify-between px-7 items-center">
+        <div>
+          <h3 className="text-2xl md:text-3xl font-semibold capitalize">{titleProp}</h3>
+          <p className="text-sm md:text-lg font-normal capitalize">{cityProp}</p>
+        </div>
+        <ArrowTopRightIcon className="h-6 w-6 border rounded-full" />
+      </div>
     </Link>
-  ); 
+  );
 };
 
 export default SingleTour;
