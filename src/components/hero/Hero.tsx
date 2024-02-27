@@ -78,9 +78,9 @@ const Hero = () => {
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-[11rem] md:-translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-12 md:h-12" />
+        <CarouselPrevious className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-[11rem] md:-translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-12 md:h-12" />
 
-        <CarouselNext className="hidden md:block absolute top-1/2 right-1/2 transform translate-x-[11rem] md:translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-12 md:h-12" />
+        <CarouselNext className="hidden md:flex absolute top-1/2 right-1/2 transform translate-x-[11rem] md:translate-x-[35rem] -translate-y-1/2 hover:bg-black hover:opacity-100 bg-black opacity-50 border-none w-10 h-10 md:w-12 md:h-12" />
       </Carousel>
     </section>
   );

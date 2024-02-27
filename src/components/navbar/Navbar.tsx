@@ -60,11 +60,10 @@ const Navbar = () => {
         <LinkComp linkProp="/#services" linkName="services" />
         <LinkComp linkProp="/about" linkName="about" />
         <LinkComp linkProp="/destinations" linkName="destinations" />
-        <LinkComp linkProp="/contact" linkName="contact" />
-        <Button linkProp="" nameProp="enquire now" classProp="px-6 py-2 text-base text-black block md:hidden" />
+        <Button linkProp="/booking" nameProp="enquire now" classProp="px-6 py-2 text-base text-black block md:hidden" />
       </nav>
       {/* btn */}
-      <Button linkProp="" nameProp="enquire now" classProp={`md:block hidden text-base`} />
+      <Button linkProp="/booking" nameProp="enquire now" classProp={`md:block hidden text-base`} />
       {/* mobile-menu */}
       <div className="block md:hidden">
         {showLinks ? (

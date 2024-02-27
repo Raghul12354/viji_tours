@@ -1,4 +1,4 @@
-import pool from "../db/db";
+// import pool from "../db/db";
 
 type DataTypes = {
     id: string;
@@ -53,17 +53,17 @@ let TourData: DataTypes[] = [
 export const getData = () => TourData
 
 // Post Method
-export const postData = async (items: DataTypes) => {
-    try {
-        const { title, description, location } = items;
-        const query = 'INSERT INTO your_table_name (title, description, location) VALUES ($1, $2, $3)';
-        const values = [title, description, location];
-        await pool.query(query, values);
-    } catch (error) {
-        console.error('Error inserting data:', error);
-        throw error;
-    }
-};
+// export const postData = async (items: DataTypes) => {
+//     try {
+//         const { title, description, location } = items;
+//         const query = 'INSERT INTO your_table_name (title, description, location) VALUES ($1, $2, $3)';
+//         const values = [title, description, location];
+//         await pool.query(query, values);
+//     } catch (error) {
+//         console.error('Error inserting data:', error);
+//         throw error;
+//     }
+// };
 // Delete Method
 export const deleteData = (id: string) => {
     TourData = TourData.filter((arg) => arg.id !== id)

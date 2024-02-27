@@ -9,8 +9,17 @@
 .footer_title {
   @apply text-2xl font-semibold;
 }
-.input_Styles{
+
+.input_Styles {
   @apply border-b-2 border-black bg-transparent focus:outline-none;
+}
+
+.booking_input {
+  @apply bg-none border-b-2 focus:outline-none pb-1 text-black
+}
+
+.booking_label {
+  @apply flex flex-col gap-2 text-gray-500
 }
 
 /* :root {
