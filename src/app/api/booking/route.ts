@@ -15,11 +15,11 @@ export const GET = async (req: Request, res: Response) => {
 
 export const POST = async (req: Request, res: Response) => {
     try {
-        const { name, email, number, tourName } = await req.json();
-        await db.query("INSERT INTO vijiforms(username, email, phoneNumber, tourName) VALUES($1, $2, $3, $4)", [name, email, number, tourName]);
+        const { userName, email, number, tourname, transport, adults, children, startDate, endDate } = await req.json();
+        await db.query("INSERT INTO vijiforms(userName, email, phoneNumber, tourname, transport, adults, children, startDate, endDate) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)", [userName, email, number, tourname, transport, adults, children, startDate, endDate]);
         return NextResponse.json({ message: "Success in inserting data in PostgreSQL" }, { status: 200 });
     } catch (error) {
-        console.error('Error:', error);
-        return NextResponse.json({ message: "Error in PostgreSQL", error }, { status: 500 });
+        console.error('Error postgresql:', error);
+        return NextResponse.json({ message: "Post Req error in PostgreSQL", error }, { status: 500 });
     }
 };

@@ -36,7 +36,6 @@ const TourComp = ({ params }: { params: { id: string } }) => {
         console.log(error, "error vro");
       });
   }, [params.id]);
-
   //   console.log(storeTour, "bro log");
   return (
     <div>
@@ -64,7 +63,6 @@ const TourComp = ({ params }: { params: { id: string } }) => {
           <TourCarousel />
           {/* overview */}
           <p className="mt-5 text-gray-500">{storeTour.description}</p>
-          <Loading />
         </div>
       ) : (
         <Suspense fallback={<Loading />} />
