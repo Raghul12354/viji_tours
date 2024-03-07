@@ -15,11 +15,17 @@
 }
 
 .booking_input {
-  @apply bg-none border-b-2 focus:outline-none pb-1 text-black
+  @apply bg-none border-b-2 focus:outline-none pb-1 text-black;
 }
 
 .booking_label {
-  @apply flex flex-col gap-2 text-gray-500
+  @apply flex flex-col gap-2 text-gray-500;
+}
+.table_data {
+  @apply bg-white shadow-md px-4 py-2 text-gray-600;
+}
+.table_header {
+  @apply px-4 py-2 text-base md:text-lg font-semibold;
 }
 
 /* :root {

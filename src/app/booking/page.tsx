@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Modal } from "@/components/booking/modal";
 import { DateComp } from "@/components/booking/dateComp";
+import { EndDateComp } from "@/components/booking/EndDateComp";
+
+// **Pending tasks: validation,modal,whatsapp api,dashboard auth,skull
 
 const Booking = () => {
   const [form, setForm] = useState({
@@ -20,22 +23,20 @@ const Booking = () => {
   const handleForm = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  // start_Date Function
+  const handleStartDateSelect = (startDate: Date | null) => {
+    if (startDate) {
+      setForm({ ...form, startDate: startDate.toISOString().split("T")[0] });
+    }
+  };
+  // start_Date Function
+  const handleEndDate = (endDate: Date | null) => {
+    if (endDate) {
+      setForm({ ...form, endDate: endDate.toISOString().split("T")[0] });
+    }
+  };
 
   const handleSubmit = async (e: any) => {
-    if (
-      !form.userName ||
-      !form.email ||
-      !form.number ||
-      !form.tourname ||
-      !form.transport ||
-      !form.adults ||
-      !form.children
-      // !form.startDate ||
-      // !form.endDate
-    ) {
-      alert("Please fill the required fields");
-      return;
-    }
     try {
       const response = await fetch("http://localhost:3000/api/booking", {
         method: "POST",
@@ -88,9 +89,10 @@ const Booking = () => {
             <h2 className="text-2xl md:text-3xl font-medium mb-4">
               Destination Details
             </h2>
-            <p>
-              All fields marked with <span className="text-red-500 text-xl">&apos;{" "}*{" "}&apos;</span>{" "}
-              must be filled in
+            <p className="hidden md:block">
+              All fields marked with{" "}
+              <span className="text-red-500 text-xl">&apos; * &apos;</span> must
+              be filled in
             </p>
           </div>
           <Separator className="mb-10 bg-black" />
@@ -133,13 +135,16 @@ const Booking = () => {
                 Start Date
                 <span className="text-red-500"> *</span>
               </p>
-              <DateComp nameProp="Select your start date" />
+              <DateComp
+                nameProp="Select your start date"
+                dateProp={handleStartDateSelect}
+              />
             </label>
             <label className="booking_label">
               <p>
                 End Date <span className="text-red-500"> *</span>
               </p>
-              <DateComp nameProp="Select your end date" />
+              <EndDateComp nameProp="Select your end date" endDateProp={handleEndDate} />
             </label>
             <label className="booking_label">
               <p>
@@ -169,7 +174,7 @@ const Booking = () => {
             </label>
           </div>
         </div>
-         {/* Personal details  */}
+        {/* Personal details  */}
         <div>
           <h2 className="text-2xl md:text-3xl font-medium mb-4 mt-10">
             Personal Details
@@ -223,7 +228,7 @@ const Booking = () => {
               Do you have any special requests?
               <textarea
                 className="border"
-                placeholder="message here..."
+                placeholder="Type here..."
                 name=""
                 id=""
                 cols={30}

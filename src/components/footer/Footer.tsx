@@ -17,25 +17,25 @@ const Footer = () => {
   return (
     <footer className="px-6 md:px-40 bg-custom_white pt-5 shadow-2xl">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-40 pt-5 md:pt-10 pb-12 md:pb-24 md:place-items-center">
-        {/* first  */}
+        {/* first section  */}
         <div className="flex flex-col">
-          <Link
-            href="/"
-            className="relative md:h-[100px] h-[60px] md:w-[128px] w-[80px]"
-          >
-            <Image
-              src="/logo/Viji tours & Travels.png"
-              alt="Viji Tours & Travels"
-              fill
-              priority={true}
-              quality={100}
-              sizes="(min-width: 300px) 128px, (min-width: 680px) calc(32.5vw - 119px), calc(100vw - 568px)"
-              className="object-contain"
-            />
-          </Link>
-          <q className=" w-1/2 md:w-[70%] font-medium md:text-lg leading-snug my-3">
-            Discover Your World, One Journey at a Time!
-          </q>
+            <Link
+              href="/"
+              className="relative md:h-[100px] h-[80px] md:w-[128px] w-[100px]"
+            >
+              <Image
+                src="/logo/Viji tours & Travels.png"
+                alt="Viji Tours & Travels"
+                fill
+                priority={true}
+                quality={100}
+                sizes="(min-width: 300px) 128px, (min-width: 680px) calc(32.5vw - 119px), calc(100vw - 568px)"
+                className="object-contain"
+              />
+            </Link>
+            <q className=" w-1/2 md:w-[70%] font-medium md:text-lg leading-snug my-3">
+              Discover Your World, One Journey at a Time!
+            </q>
           {/* social icons */}
           <div className="mt-5">
             <p className="text-lg font-medium capitalize ">follow us</p>
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        {/* second */}
+        {/* second section */}
         <div className="grid grid-cols-1 gap-5 w-fit h-fit">
           <h3 className="footer_title">Useful Links</h3>
           <Link href="">FAQ</Link>
@@ -60,7 +60,7 @@ const Footer = () => {
           <Link href="/contact">Contact</Link>
           <Link href="">Support</Link>
         </div>
-        {/* third  */}
+        {/* third section */}
         <div className="flex flex-col gap-5">
           <h3 className="footer_title">Contact Us</h3>
           <address className="flex items-center gap-2">
@@ -88,15 +88,9 @@ const Footer = () => {
         </div>
       </div>
       {/* copyrights */}
-      <div className="flex items-center md:justify-between pb-3">
-        <p className="text-xs md:text-base font-medium">
-          Copyright &copy; 2024 by <span className="text-yellow-400">V</span>
-          iji Tours & Travels. All Rights Reserved.
-        </p>
-        <Link className="hidden md:block" href="">
-          <ArrowUp />
-        </Link>
-      </div>
+      <p className="text-xs md:text-base font-medium">
+        Copyright &copy; 2024 by Viji Tours & Travels. All Rights Reserved.
+      </p>
     </footer>
   );
 };

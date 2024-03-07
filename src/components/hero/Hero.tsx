@@ -69,10 +69,10 @@ const Hero = () => {
                   className="object-cover -z-10 opacity-70"
                 />
                 <div>
-                  <h1 className="text-3xl md:text-5xl mb-5 font-semibold">
+                  <h1 className="text-3xl md:text-5xl mb-3 md:mb-5 font-semibold">
                     {title}
                   </h1>
-                  <p className="w-[60%] mx-auto text-sm md:text-base">{desc}</p>
+                  <p className="px-5 w-full md:w-[60%] mx-auto text-xs md:text-base">{desc}</p>
                 </div>
               </CarouselItem>
             );

@@ -20,17 +20,17 @@ import {
 
 interface DateCompProps {
   nameProp: string;
-  dateProp: (date: Date) => void; // Callback function to pass selected date to parent
+  endDateProp: (date: Date) => void; 
 }
 
-export function DateComp({ nameProp, dateProp }: DateCompProps) {
+export function EndDateComp({ nameProp, endDateProp }: DateCompProps) {
   const [date, setDate] = React.useState<Date>(new Date()); // Initialize with the current date
 
   const handleDateSelect = (selectedDate: Date | undefined ) => {
     if (selectedDate) {
-      console.log("Selected date:", selectedDate);
+      console.log("Selected Enddate:", selectedDate);
       setDate(selectedDate);
-      dateProp(selectedDate); 
+      endDateProp(selectedDate); 
     }
   };
 

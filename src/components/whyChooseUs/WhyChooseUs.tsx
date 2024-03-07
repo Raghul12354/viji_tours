@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import TickIcon from "../Icons/TickIcon";
 import TitleComp from "../titleComp/TitleComp";
 
@@ -6,7 +7,7 @@ const SingleItem = ({ desc }: { desc: string }) => {
   return (
     <div className="flex gap-4">
       <TickIcon />
-      <p className="font-medium md:text-lg">{desc}</p>
+      <p className="font-medium text-base md:text-lg">{desc}</p>
     </div>
   );
 };
@@ -19,7 +20,7 @@ const WhyChooseUs = () => {
           src="/whyChooseUs/whyChoose-bg.jpg"
           alt=""
           fill
-          // sizes="(min-width: 780px) calc(50vw - 216px), calc(100vw - 48px)"
+          // sizes="(min-width: 200px) calc(50vw - 216px), calc(100vw - 48px)"
           className="object-cover opacity-80"
         />
       </aside>

@@ -16,7 +16,6 @@ export default function Home() {
       {/* #contact pages for tours and travels
       #pending:
       about page , 
-      dashboard, 
       whatsapp api ,  */}
       <Testimonials />
       <ContactUs />

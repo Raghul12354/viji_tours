@@ -42,12 +42,12 @@ const TourComp = ({ params }: { params: { id: string } }) => {
       {storeTour ? (
         <div className="bg-custom_white m-6 md:mx-40 max-w-screen h-screen my-10 p-6 md:p-16 shadow-2xl rounded-md">
           {/* title and location */}
-          <div className="flex md:flex-row items-start gap-3 md:items-center justify-between">
+          <div className="flex flex-col md:flex-row items-start gap-5 md:items-center justify-between">
             <div>
               <h3 className="text-2xl md:text-3xl font-semibold">
                 {storeTour.title}
               </h3>
-              <p className="text-sm md:text-lg font-normal text-gray-500 flex items-center mt-1">
+              <p className="text-sm md:text-lg font-normal text-gray-500 flex items-center mt-3">
                 <Location />
                 {storeTour.location}
               </p>

@@ -1,8 +1,10 @@
+import TitleComp from "../titleComp/TitleComp";
 import SingleTour from "./SingleTour";
 
 const PopularTours = () => {
   return (
     <section className="p-6 md:px-40 min-h-screen w-screen grid grid-cols-1 items-center">
+      <TitleComp classProp="place-items-center mb-3" subtitles="Explore Our" title="Top Picks" />
       <div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-10 ">
         <SingleTour
           gridClass="md:h-full w-full md:col-span-1 md:row-span-3"

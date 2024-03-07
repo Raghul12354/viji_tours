@@ -6,7 +6,7 @@ export default function TickIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6 text-yellow-400"
+      className="w-10 md:w-7 h-10 md:h-7 text-yellow-400"
     >
       <path
         strokeLinecap="round"

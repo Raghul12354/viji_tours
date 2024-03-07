@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="px-6 md:px-40 min-h-screen min-w-full pb-10 md:pb-20 flex flex-col justify-center"
+      className="px-6 md:px-40 h-screen md:min-h-screen min-w-full py-10 md:pb-20 flex flex-col justify-center"
     >
       <TitleComp
         classProp="place-items-center mb-8 md:mb-16"
@@ -16,7 +16,7 @@ const Services = () => {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 place-items-center mt-5 md:mt-10">
         <Link
           href="/destinations"
-          className="relative bg-black h-[250px] md:h-[500px] w-full overflow-hidden"
+          className="relative bg-black h-[220px] md:h-[500px] w-full overflow-hidden"
         >
           <Image
             src="/services/tour_bg.jpg"
@@ -39,7 +39,7 @@ const Services = () => {
         </Link>
         <Link
           href="/contact"
-          className="relative bg-black h-[250px] md:h-[500px] w-full overflow-hidden"
+          className="relative bg-black h-[220px] md:h-[500px] w-full overflow-hidden"
         >
           <Image
             src="/services/travels.jpg"
