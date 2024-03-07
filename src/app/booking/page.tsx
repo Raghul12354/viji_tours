@@ -4,8 +4,25 @@ import { Separator } from "@/components/ui/separator";
 import { Modal } from "@/components/booking/modal";
 import { DateComp } from "@/components/booking/dateComp";
 import { EndDateComp } from "@/components/booking/EndDateComp";
+import { z } from "zod";
 
-// **Pending tasks: validation,modal,whatsapp api,dashboard auth,skull
+// **Pending tasks: modal,whatsapp api,dashboard auth, 
+const bookingSchema = z.object({
+  userName: z
+    .string()
+    .min(3, { message: "Username must be at least 3 characters." })
+    .max(50),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  number: z.string().min(10, { message: "Please enter a valid phone number." }),
+  tourname: z.string().min(1, { message: "Please select a tour name." }),
+  transport: z
+    .string()
+    .min(1, { message: "Please select transportation preference." }),
+  adults: z.string().min(1, { message: "Please enter number of adults." }),
+  children: z.string().min(1, { message: "Please enter number of children." }),
+  startDate: z.string().min(1, { message: "Please select start date." }),
+  endDate: z.string().min(1, { message: "Please select end date." }),
+});
 
 const Booking = () => {
   const [form, setForm] = useState({
@@ -18,8 +35,9 @@ const Booking = () => {
     children: "",
     startDate: "",
     endDate: "",
+    splMessage: "",
   });
-
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const handleForm = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -38,6 +56,9 @@ const Booking = () => {
 
   const handleSubmit = async (e: any) => {
     try {
+      //** Validate form data using zod schema
+      bookingSchema.parse(form);
+
       const response = await fetch("http://localhost:3000/api/booking", {
         method: "POST",
         headers: {
@@ -52,9 +73,17 @@ const Booking = () => {
       console.log("Form submitted successfully:", data);
     } catch (error) {
       console.error("Error while submitting form:", error);
+      // If validation fails, set the errors state
+      if (error instanceof z.ZodError) {
+        setErrors(
+          error.errors.reduce((acc: Record<string, string>, curr) => {
+            acc[curr.path[0]] = curr.message;
+            return acc;
+          }, {})
+        );
+      }
     }
   };
-
   //  EmailHandler
   const handleEmail = async (e: any) => {
     try {
@@ -65,6 +94,7 @@ const Booking = () => {
         },
         body: JSON.stringify(form),
       });
+
       if (!res.ok) {
         throw new Error("Failed to submit Email Form");
       }
@@ -102,6 +132,9 @@ const Booking = () => {
                 Select your favorite Destination{" "}
                 <span className="text-red-500">*</span>
               </p>
+              {errors.tourname && (
+                <p className="text-red-500">{errors.tourname}</p>
+              )}
               <select
                 className="booking_input pt-1"
                 onChange={handleForm}
@@ -119,6 +152,9 @@ const Booking = () => {
                 Would you like assistance with transportation?{" "}
                 <span className="text-red-500">*</span>
               </p>
+              {errors.transport && (
+                <p className="text-red-500">{errors.transport}</p>
+              )}
               <select
                 className="booking_input pt-1"
                 name="transport"
@@ -135,6 +171,9 @@ const Booking = () => {
                 Start Date
                 <span className="text-red-500"> *</span>
               </p>
+              {errors.startDate && (
+                <p className="text-red-500">{errors.startDate}</p>
+              )}
               <DateComp
                 nameProp="Select your start date"
                 dateProp={handleStartDateSelect}
@@ -144,13 +183,20 @@ const Booking = () => {
               <p>
                 End Date <span className="text-red-500"> *</span>
               </p>
-              <EndDateComp nameProp="Select your end date" endDateProp={handleEndDate} />
+              {errors.endDate && (
+                <p className="text-red-500">{errors.endDate}</p>
+              )}
+              <EndDateComp
+                nameProp="Select your end date"
+                endDateProp={handleEndDate}
+              />
             </label>
             <label className="booking_label">
               <p>
                 No. of Adults
                 <span className="text-red-500"> *</span>
               </p>
+              {errors.adults && <p className="text-red-500">{errors.adults}</p>}
               <input
                 className="booking_input "
                 type="text"
@@ -164,6 +210,9 @@ const Booking = () => {
                 No. of Children
                 <span className="text-red-500"> *</span>
               </p>
+              {errors.children && (
+                <p className="text-red-500">{errors.children}</p>
+              )}
               <input
                 className="booking_input "
                 type="text"
@@ -183,9 +232,12 @@ const Booking = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <label className="booking_label">
               <p>
-                Name
+                Full Name
                 <span className="text-red-500"> *</span>
               </p>
+              {errors.userName && (
+                <p className="text-red-500">{errors.userName}</p>
+              )}
               <input
                 className="booking_input"
                 type="text"
@@ -194,11 +246,26 @@ const Booking = () => {
                 value={form.userName}
               />
             </label>
-            <label className="booking_label">
+            <label className="booking_label ">
+              <p>
+                Number
+                <span className="text-red-500"> *</span>
+              </p>
+              {errors.number && <p className="text-red-500">{errors.number}</p>}
+              <input
+                className="booking_input"
+                onChange={handleForm}
+                value={form.number}
+                type="tel"
+                name="number"
+              />
+            </label>
+            <label className="booking_label col-span-2">
               <p>
                 Email
                 <span className="text-red-500"> *</span>
               </p>
+              {errors.email && <p className="text-red-500">{errors.email}</p>}
               <input
                 className="booking_input"
                 onChange={handleForm}
@@ -207,30 +274,14 @@ const Booking = () => {
                 name="email"
               />
             </label>
-            <label className="booking_label">
-              <p>
-                Number
-                <span className="text-red-500"> *</span>
-              </p>
-              <input
-                className="booking_input"
-                onChange={handleForm}
-                value={form.number}
-                type="text"
-                name="number"
-              />
-            </label>
-            <label className="booking_label">
-              Number
-              <input className="booking_input" type="text" name="number" />
-            </label>
-            <label className="booking_label">
+            <label className="booking_label col-span-2">
               Do you have any special requests?
               <textarea
-                className="border"
+                className="border-2 w-full mt-3"
                 placeholder="Type here..."
-                name=""
-                id=""
+                name="splMessage"
+                onChange={handleForm}
+                value={form.splMessage}
                 cols={30}
                 rows={10}
                 spellCheck={true}
