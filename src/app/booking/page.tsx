@@ -40,7 +40,7 @@ const Booking = () => {
     EndDate: "",
     SplMessage: "",
   });
-  console.log("Current form state:", form);
+  // console.log("Current form state:", form);
   const handleForm = (e: any) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
