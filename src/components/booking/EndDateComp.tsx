@@ -28,7 +28,7 @@ export function EndDateComp({ nameProp, endDateProp }: DateCompProps) {
 
   const handleDateSelect = (selectedDate: Date | undefined ) => {
     if (selectedDate) {
-      console.log("Selected Enddate:", selectedDate);
+      console.log("Selected EndDate:", selectedDate);
       setDate(selectedDate);
       endDateProp(selectedDate); 
     }

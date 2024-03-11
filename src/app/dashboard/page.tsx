@@ -4,6 +4,11 @@ import EditBtn from "@/components/dashboard/EditBtn";
 import Loading from "./loading";
 import Link from "next/link";
 
+const formatDate = (dateString: any) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString();
+};
+
 const getUsers = async () => {
   const res = await fetch("http://localhost:3000/api/booking", {
     next: { revalidate: 0 },
@@ -55,7 +60,7 @@ const DashboardPage = () => {
             {users.map((items) => {
               const {
                 id,
-                username,
+                name,
                 email,
                 phonenumber,
                 tourname,
@@ -72,15 +77,19 @@ const DashboardPage = () => {
                   className="text-center hover:scale-100 transition-all duration-300 hover:shadow-2xl h-16 min-h-20"
                 >
                   <td className="table_data">{id}</td>
-                  <td className="table_data">{username}</td>
-                  <td className="table_data"><Link href={`mailto:${email}`}>{email}</Link></td>
-                  <td className="table_data"><Link href={`tel:${phonenumber}`}>{phonenumber}</Link></td>
+                  <td className="table_data">{name}</td>
+                  <td className="table_data">
+                    <Link href={`mailto:${email}`}>{email}</Link>
+                  </td>
+                  <td className="table_data">
+                    <Link href={`tel:${phonenumber}`}>{phonenumber}</Link>
+                  </td>
                   <td className="table_data">{tourname}</td>
                   <td className="table_data">{transport}</td>
                   <td className="table_data">{adults}</td>
                   <td className="table_data">{children}</td>
-                  <td className="table_data">{startdate}</td>
-                  <td className="table_data">{enddate}</td>
+                  <td className="table_data">{formatDate(startdate)}</td>
+                  <td className="table_data">{formatDate(enddate)}</td>
                   <td className="table_data">{splmessage}</td>
                   <td className="px-4 py-2">
                     <button className="cursor-pointer">

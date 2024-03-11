@@ -2,63 +2,69 @@
 import React, { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Modal } from "@/components/booking/modal";
-import { DateComp } from "@/components/booking/dateComp";
+import { StartDate } from "@/components/booking/dateComp";
 import { EndDateComp } from "@/components/booking/EndDateComp";
 import { z } from "zod";
 
-// **Pending tasks: modal,whatsapp api,dashboard auth, 
+// **Pending tasks: modal,whatsapp api,dashboard auth,
 const bookingSchema = z.object({
-  userName: z
+  Name: z
     .string()
     .min(3, { message: "Username must be at least 3 characters." })
     .max(50),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  number: z.string().min(10, { message: "Please enter a valid phone number." }),
-  tourname: z.string().min(1, { message: "Please select a tour name." }),
-  transport: z
+  Email: z.string().email({ message: "Please enter a valid email address." }),
+  PhoneNumber: z
+    .string()
+    .min(10, { message: "Please enter a valid phone number." }),
+  TourName: z.string().min(1, { message: "Please select a tour name." }),
+  Transport: z
     .string()
     .min(1, { message: "Please select transportation preference." }),
-  adults: z.string().min(1, { message: "Please enter number of adults." }),
-  children: z.string().min(1, { message: "Please enter number of children." }),
-  startDate: z.string().min(1, { message: "Please select start date." }),
-  endDate: z.string().min(1, { message: "Please select end date." }),
+  Adults: z.string().min(1, { message: "Please enter number of adults." }),
+  Children: z.string().min(1, { message: "Please enter number of children." }),
+  StartDate: z.string().min(1, { message: "Please select start date." }),
+  EndDate: z.string().min(1, { message: "Please select end date." }),
 });
 
 const Booking = () => {
-  const [form, setForm] = useState({
-    userName: "",
-    email: "",
-    number: "",
-    tourname: "",
-    transport: "",
-    adults: "",
-    children: "",
-    startDate: "",
-    endDate: "",
-    splMessage: "",
-  });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [form, setForm] = useState({
+    Name: "",
+    Email: "",
+    PhoneNumber: "",
+    TourName: "",
+    Transport: "",
+    Adults: "",
+    Children: "",
+    StartDate: "",
+    EndDate: "",
+    SplMessage: "",
+  });
+  console.log("Current form state:", form);
   const handleForm = (e: any) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
   // start_Date Function
-  const handleStartDateSelect = (startDate: Date | null) => {
-    if (startDate) {
-      setForm({ ...form, startDate: startDate.toISOString().split("T")[0] });
+  const handleStartDateSelect = (StartDate: Date | null) => {
+    if (StartDate) {
+      const startDate = StartDate.toISOString().split("T")[0];
+      setForm({ ...form, StartDate: startDate });
     }
   };
-  // start_Date Function
-  const handleEndDate = (endDate: Date | null) => {
-    if (endDate) {
-      setForm({ ...form, endDate: endDate.toISOString().split("T")[0] });
+  
+  // End_Date Function
+  const handleEndDate = (EndDate: Date | null) => {
+    if (EndDate) {
+      const endDate = EndDate.toISOString().split("T")[0];
+      setForm({ ...form, EndDate: endDate });
     }
   };
-
   const handleSubmit = async (e: any) => {
     try {
       //** Validate form data using zod schema
       bookingSchema.parse(form);
-
+      //** POST req
       const response = await fetch("http://localhost:3000/api/booking", {
         method: "POST",
         headers: {
@@ -132,14 +138,14 @@ const Booking = () => {
                 Select your favorite Destination{" "}
                 <span className="text-red-500">*</span>
               </p>
-              {errors.tourname && (
-                <p className="text-red-500">{errors.tourname}</p>
+              {errors.TourName && (
+                <p className="text-red-500">{errors.TourName}</p>
               )}
               <select
                 className="booking_input pt-1"
                 onChange={handleForm}
-                value={form.tourname}
-                name="tourname"
+                value={form.TourName}
+                name="TourName"
               >
                 <option value="">Select...</option>
                 <option value="TamilNadu Tour">TamilNadu Tour</option>
@@ -149,17 +155,17 @@ const Booking = () => {
             </label>
             <label className="booking_label">
               <p>
-                Would you like assistance with transportation?{" "}
+                Would you like assistance with Transportation?{" "}
                 <span className="text-red-500">*</span>
               </p>
-              {errors.transport && (
-                <p className="text-red-500">{errors.transport}</p>
+              {errors.Transport && (
+                <p className="text-red-500">{errors.Transport}</p>
               )}
               <select
                 className="booking_input pt-1"
-                name="transport"
+                name="Transport"
                 onChange={handleForm}
-                value={form.transport}
+                value={form.Transport}
               >
                 <option value="">Select...</option>
                 <option value="yes">Yes</option>
@@ -171,10 +177,10 @@ const Booking = () => {
                 Start Date
                 <span className="text-red-500"> *</span>
               </p>
-              {errors.startDate && (
-                <p className="text-red-500">{errors.startDate}</p>
+              {errors.StartDate && (
+                <p className="text-red-500">{errors.StartDate}</p>
               )}
-              <DateComp
+              <StartDate
                 nameProp="Select your start date"
                 dateProp={handleStartDateSelect}
               />
@@ -196,13 +202,13 @@ const Booking = () => {
                 No. of Adults
                 <span className="text-red-500"> *</span>
               </p>
-              {errors.adults && <p className="text-red-500">{errors.adults}</p>}
+              {errors.Adults && <p className="text-red-500">{errors.Adults}</p>}
               <input
                 className="booking_input "
                 type="text"
-                name="adults"
+                name="Adults"
                 onChange={handleForm}
-                value={form.adults}
+                value={form.Adults}
               />
             </label>
             <label className="booking_label">
@@ -210,15 +216,15 @@ const Booking = () => {
                 No. of Children
                 <span className="text-red-500"> *</span>
               </p>
-              {errors.children && (
-                <p className="text-red-500">{errors.children}</p>
+              {errors.Children && (
+                <p className="text-red-500">{errors.Children}</p>
               )}
               <input
                 className="booking_input "
                 type="text"
-                name="children"
+                name="Children"
                 onChange={handleForm}
-                value={form.children}
+                value={form.Children}
               />
             </label>
           </div>
@@ -235,29 +241,29 @@ const Booking = () => {
                 Full Name
                 <span className="text-red-500"> *</span>
               </p>
-              {errors.userName && (
-                <p className="text-red-500">{errors.userName}</p>
-              )}
+              {errors.Name && <p className="text-red-500">{errors.Name}</p>}
               <input
                 className="booking_input"
                 type="text"
-                name="userName"
+                name="Name"
                 onChange={handleForm}
-                value={form.userName}
+                value={form.Name}
               />
             </label>
             <label className="booking_label ">
               <p>
-                Number
+                Phone Number
                 <span className="text-red-500"> *</span>
               </p>
-              {errors.number && <p className="text-red-500">{errors.number}</p>}
+              {errors.PhoneNumber && (
+                <p className="text-red-500">{errors.PhoneNumber}</p>
+              )}
               <input
                 className="booking_input"
                 onChange={handleForm}
-                value={form.number}
+                value={form.PhoneNumber}
                 type="tel"
-                name="number"
+                name="PhoneNumber"
               />
             </label>
             <label className="booking_label col-span-2">
@@ -265,13 +271,13 @@ const Booking = () => {
                 Email
                 <span className="text-red-500"> *</span>
               </p>
-              {errors.email && <p className="text-red-500">{errors.email}</p>}
+              {errors.Email && <p className="text-red-500">{errors.Email}</p>}
               <input
                 className="booking_input"
                 onChange={handleForm}
-                value={form.email}
+                value={form.Email}
                 type="email"
-                name="email"
+                name="Email"
               />
             </label>
             <label className="booking_label col-span-2">
@@ -279,9 +285,9 @@ const Booking = () => {
               <textarea
                 className="border-2 w-full mt-3"
                 placeholder="Type here..."
-                name="splMessage"
+                name="SplMessage"
                 onChange={handleForm}
-                value={form.splMessage}
+                value={form.SplMessage}
                 cols={30}
                 rows={10}
                 spellCheck={true}

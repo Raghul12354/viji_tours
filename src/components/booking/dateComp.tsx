@@ -23,12 +23,12 @@ interface DateCompProps {
   dateProp: (date: Date) => void; // Callback function to pass selected date to parent
 }
 
-export function DateComp({ nameProp, dateProp }: DateCompProps) {
+export function StartDate({ nameProp, dateProp }: DateCompProps) {
   const [date, setDate] = React.useState<Date>(new Date()); // Initialize with the current date
 
   const handleDateSelect = (selectedDate: Date | undefined ) => {
     if (selectedDate) {
-      console.log("Selected date:", selectedDate);
+      console.log("Selected Startdate:", selectedDate);
       setDate(selectedDate);
       dateProp(selectedDate); 
     }
