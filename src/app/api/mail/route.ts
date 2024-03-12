@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request, res: Response) {
     try {
-        const { userName, email, number, tourname, transport, adults, children, startDate, endDate } = await req.json();
+        const { Name, Email, PhoneNumber, TourName, Transport, Adults, Children, StartDate, EndDate, SplMessage } = await req.json();
 
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
@@ -16,7 +16,7 @@ export async function POST(req: Request, res: Response) {
             from: process.env.nodemailer_Email,
             to: 'raghulkrishna50@gmail.com',
             subject: 'test of nodemailer',
-            text: `Name: ${userName}\nEmail: ${email}\nNumber: ${number}\nTourName: ${tourname}\nTransport: ${transport}\nNo.of Adults: ${adults}\nNo.of Children: ${children}\nStart-Date: ${startDate}\nEnd-Date: ${endDate}`
+            text: `Name: ${Name}\nEmail: ${Email}\nNumber: ${PhoneNumber}\nTourName: ${TourName}\nTransport: ${Transport}\nNo.of Adults: ${Adults}\nNo.of Children: ${Children}\nStart-Date: ${StartDate}\nEnd-Date: ${EndDate}\nMessage: ${SplMessage}`
         });
         return NextResponse.json({ message: "Email Sent" }, { status: 200 });
     } catch (error) {

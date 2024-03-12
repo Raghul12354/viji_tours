@@ -1,7 +1,7 @@
 import Banner from "@/components/about/Banner";
 import Image from "next/image";
 
-// add: how we work-icons, images and sizes,content and responsiveness 
+// add: how we work-icons, images and sizes,content  
 const about = () => {
   return (
     <section>
@@ -73,7 +73,7 @@ const about = () => {
             className="rounded-md order-2 md:order-1"
           />
           <div className="order-1 md:order-2">
-            <h6 className="uppercase text-xl font-bold mb-5">How we work</h6>
+            <h6 className="uppercase text-xl font-bold mb-5">Our Process</h6>
             <p className="text-base md:text-lg text-gray-500">
               We specialize in curating unique and immersive journeys that cater
               to every traveler's wanderlust. Whether you're dreaming of
