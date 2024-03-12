@@ -1,0 +1,48 @@
+"use client";
+import { signIn } from "next-auth/react";
+// import { useRouter } from "next/navigation";
+import { FormEvent } from "react";
+
+export default function Form() {
+  // const router = useRouter();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const response = await signIn("credentials", {
+      Email: formData.get("Email"),
+      Password: formData.get("Password"),
+      redirect: false,
+    });
+
+    console.log({ response });
+
+    // if (response?.error) {
+    //   console.log("Sign-in failed bro");
+    //   router.push("/dashboard");
+    //   router.refresh();
+    // }
+  };
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-2 mx-auto max-w-md mt-10"
+    >
+      <input
+        name="Email"
+        className="border border-black text-black"
+        type="email"
+        placeholder="enter your email"
+        required
+      />
+      <input
+        name="Password"
+        className="border border-black  text-black"
+        type="password"
+        placeholder="enter your password"
+        required
+      />
+      <button type="submit">Login</button>
+    </form>
+  );
+}
