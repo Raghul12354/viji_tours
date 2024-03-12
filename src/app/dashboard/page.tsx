@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import EditBtn from "@/components/dashboard/EditBtn";
 import Loading from "./loading";
 import Link from "next/link";
-
+// ** good design for skeleton , delete method , auth add: how we work section, nav underlin and animations add:Faq in booking form page and policy information also 
 const formatDate = (dateString: any) => {
   const date = new Date(dateString);
   return date.toLocaleDateString();

@@ -12,10 +12,9 @@ export default function Home() {
       <Hero />
       <Services />
       <PopularTours />
-      <WhyChooseUs /> 
+      <WhyChooseUs />
       {/* #contact pages for tours and travels
       #pending:
-      about page , 
       whatsapp api ,  */}
       <Testimonials />
       <ContactUs />

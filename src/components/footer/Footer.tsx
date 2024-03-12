@@ -55,10 +55,10 @@ const Footer = () => {
         {/* second section */}
         <div className="grid grid-cols-1 gap-5 w-fit h-fit">
           <h3 className="footer_title">Useful Links</h3>
-          <Link href="">FAQ</Link>
+          <Link href="/about">About</Link>
           <Link href="/destinations">Destinations</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="">Support</Link>
+          <Link href="/booking">Booking</Link>
+          <Link href="/">travels</Link>
         </div>
         {/* third section */}
         <div className="flex flex-col gap-5">
@@ -88,7 +88,7 @@ const Footer = () => {
         </div>
       </div>
       {/* copyrights */}
-      <p className="text-xs md:text-base font-medium">
+      <p className="text-xs md:text-base font-medium text-center pb-2">
         Copyright &copy; 2024 by Viji Tours & Travels. All Rights Reserved.
       </p>
     </footer>

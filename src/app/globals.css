@@ -7,7 +7,7 @@
 }
 
 .footer_title {
-  @apply text-2xl font-semibold;
+  @apply  text-2xl md:text-3xl font-semibold;
 }
 
 .input_Styles {
