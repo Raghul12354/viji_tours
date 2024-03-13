@@ -28,8 +28,8 @@ export const POST = async (req: Request) => {
 
 export const DELETE = async (request: Request) => {
     try {
-        const { Id } = await request.json();
-        const res = await sql`DELETE FROM Users WHERE Id = ${Id}`
+        const { id } = await request.json();
+        const res = await sql`DELETE FROM Users WHERE Id = ${id}`
         return NextResponse.json({ message: "Deleted the user details" }, { status: 200 })
     } catch (error) {
         console.log(error, "error deleting the user details");

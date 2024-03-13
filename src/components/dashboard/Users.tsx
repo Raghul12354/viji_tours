@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import EditBtn from "@/components/dashboard/EditBtn";
 import Link from "next/link";
 import Loading from "@/app/dashboard/loading";
-// ** good design for skeleton , delete method , auth add: how we work section, nav underlin and animations add:Faq in booking form page and policy information also
+// ** good design for skeleton(need to learn how to implement) , auth add: how we work section, nav underline and animations add:Faq in booking form page and policy information also
 
 // format Date like 1990-12-12
 const formatDate = (dateString: any) => {
@@ -41,6 +41,7 @@ const Users = () => {
     try {
       const response = await fetch("http://localhost:3000/api/booking", {
         method: "DELETE",
+        body: JSON.stringify({ id }),
       });
       if (response.ok) {
         console.log("User deleted successfully");
@@ -65,7 +66,7 @@ const Users = () => {
         <table className="bg-white w-full my-20 rounded table-auto">
           <thead>
             <tr>
-              <th className="table_header">Id</th>
+              <th className="table_header">id</th>
               <th className="table_header">Name</th>
               <th className="table_header">Email</th>
               <th className="table_header">Number</th>

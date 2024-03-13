@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Separator } from "@/components/ui/separator";
-import { Modal } from "@/components/booking/modal";
+import { z } from "zod";
+import Modal from "@/components/booking/modal";
 import { StartDate } from "@/components/booking/dateComp";
 import { EndDateComp } from "@/components/booking/EndDateComp";
-import { z } from "zod";
+import { Separator } from "@/components/ui/separator";
 
-// **Pending tasks: modal,whatsapp api,dashboard auth,
+// **Pending tasks: whatsapp api,dashboard auth{on processing},
 const bookingSchema = z.object({
   Name: z
     .string()
@@ -27,6 +27,7 @@ const bookingSchema = z.object({
 });
 
 const Booking = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [form, setForm] = useState({
     Name: "",
@@ -45,6 +46,7 @@ const Booking = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
+  
   // start_Date Function
   const handleStartDateSelect = (StartDate: Date | null) => {
     if (StartDate) {
@@ -52,7 +54,7 @@ const Booking = () => {
       setForm({ ...form, StartDate: startDate });
     }
   };
-  
+
   // End_Date Function
   const handleEndDate = (EndDate: Date | null) => {
     if (EndDate) {
@@ -75,6 +77,7 @@ const Booking = () => {
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
+      setOpenModal(true);
       const data = await response.json();
       console.log("Form submitted successfully:", data);
     } catch (error) {
@@ -295,13 +298,16 @@ const Booking = () => {
             </label>
           </div>
         </div>
-        {/* <Modal /> */}
-        <button
-          className="text-lg md:text-xl font-medium bg-yellow-400 rounded-xl px-16 py-3 shadow-md hover:bg-yellow-500 mt-12 md:mt-16 mx-auto flex"
-          type="submit"
-        >
-          Submit
-        </button>
+        {openModal ? (
+          <Modal />
+        ) : (
+          <button
+            className="text-lg md:text-xl font-medium bg-yellow-400 rounded-xl px-16 py-3 shadow-md hover:bg-yellow-500 mt-12 md:mt-16 mx-auto flex"
+            type="submit"
+          >
+            Submit
+          </button>
+        )}
       </form>
     </div>
   );
