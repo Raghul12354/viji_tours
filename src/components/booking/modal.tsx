@@ -29,7 +29,7 @@ const Modal = () => {
               <CloseIcon classProp="text-green-500 w-8 h-8 hover:text-green-600" />
             </button>
             <h2 className="text-2xl md:text-4xl font-bold text-gray-800 capitalize">
-              Your form has been submitted successfully.
+              Your form has been submitted successfully &#127881;
             </h2>
             <p className="pt-5 text-gray-700 md:text-lg text-base font-medium">
               Our team is ready to help you right away. You&apos;ll hear from us

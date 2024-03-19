@@ -67,7 +67,7 @@ const Booking = () => {
       //** Validate form data using zod schema
       bookingSchema.parse(form);
       //** POST req
-      const response = await fetch("http://localhost:3000/api/booking", {
+      const response = await fetch("/api/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const Booking = () => {
   //  EmailHandler
   const handleEmail = async (e: any) => {
     try {
-      const res = await fetch("http://localhost:3000/api/mail", {
+      const res = await fetch("/api/mail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -239,7 +239,7 @@ const Booking = () => {
           </h2>
           <Separator className="mb-10 bg-black" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <label className="booking_label">
+            <label className="booking_label col-span-2 md:col-span-1">
               <p>
                 Full Name
                 <span className="text-red-500"> *</span>
@@ -253,7 +253,7 @@ const Booking = () => {
                 value={form.Name}
               />
             </label>
-            <label className="booking_label ">
+            <label className="booking_label">
               <p>
                 Phone Number
                 <span className="text-red-500"> *</span>
