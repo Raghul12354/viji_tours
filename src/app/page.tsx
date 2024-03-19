@@ -7,7 +7,6 @@ import ContactUs from "@/components/contact_us/ContactUs";
 
 export default function Home() {
   return (
-    // <main className="overflow-hidden">
     <main>
       <Hero />
       <Services />

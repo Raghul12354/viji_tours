@@ -1,9 +1,10 @@
-import { sql } from "@vercel/postgres"
-import { compare } from "bcrypt"
-import NextAuth from "next-auth"
+import nextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
-const handler = NextAuth({
+import { sql } from "@vercel/postgres"
+import { compare } from "bcrypt"
+
+const handler = nextAuth({
     session: {
         strategy: 'jwt',
     },
@@ -13,36 +14,36 @@ const handler = NextAuth({
     providers: [
         CredentialsProvider({
             credentials: {
-                Email: {},
-                Password: {}
+                email: {},
+                password: {}
             },
             async authorize(credentials, req) {
-                const response = await sql`SELECT * FROM Login 
-                WHERE Email=${credentials?.Email}`
-                const user = response.rows[0]
-
-                // console.log("User:", user);
-                // console.log("Credentials:", credentials);
-
+                console.log({ credentials });
+                const response = await sql`SELECT * FROM login WHERE email=${credentials?.email}`
+                const user = response.rows[0];
+                // const user = response.rows.length > 0 ? response.rows[0] : null;
+                console.log("User:", user);
                 // if (!user || !user.Password) {
                 //     console.log("User not found or password missing");
                 //     return null;
                 // }
-                const correctPassword = await compare(credentials?.Password || '', user.Password)
-                console.log({ correctPassword });
+                const passwordCorrect = await compare(
+                    credentials?.password || "",
+                    user.password
+                );
 
-                if (correctPassword) {
+                console.log({ passwordCorrect });
+
+                if (passwordCorrect) {
                     return {
                         id: user.id,
-                        email: user.email
-                    }
+                        email: user.email,
+                    };
                 }
-                console.log({ credentials });
+                return null;
+            },
+        }),
+    ],
+});
 
-                return null
-            }
-        })
-    ]
-})
-
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

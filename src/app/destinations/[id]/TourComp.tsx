@@ -1,23 +1,21 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
+import Loading from "../loading";
 import { Separator } from "@/components/ui/separator";
-
 import TourCarousel from "@/components/destinations/TourCarousel";
 import Location from "@/components/Icons/Location";
 import Button from "@/components/button/Button";
-import Loading from "../loading";
 
 interface Tour {
   id: string;
   title: string;
   img: string;
   description: string;
-  nights: string;
-  days: string;
   location: string;
 }
+
 async function GetTours(id: number | string) {
-  const res = await fetch(`http://localhost:3000/api/destinations/${id}`, {
+  const res = await fetch(`/api/destinations/${id}`, {
     next: { revalidate: 0 },
   });
   const data = await res.json();
@@ -25,31 +23,31 @@ async function GetTours(id: number | string) {
 }
 
 const TourComp = ({ params }: { params: { id: string } }) => {
-  const [storeTour, setStoreTour] = useState<Tour | null>(null);
+  const [tour, setTour] = useState<Tour | null>(null);
   useEffect(() => {
     GetTours(params.id)
       .then((result: any) => {
-        setStoreTour(result);
+        setTour(result);
         // console.log(result, "Good to go");
       })
       .catch((error) => {
         console.log(error, "error vro");
       });
   }, [params.id]);
-  //   console.log(storeTour, "bro log");
+  //   console.log(tour, "bro log");
   return (
     <div>
-      {storeTour ? (
+      {tour ? (
         <div className="bg-custom_white m-6 md:mx-40 max-w-screen h-screen my-10 p-6 md:p-16 shadow-2xl rounded-md">
           {/* title and location */}
           <div className="flex flex-col md:flex-row items-start gap-5 md:items-center justify-between">
             <div>
               <h3 className="text-2xl md:text-3xl font-semibold">
-                {storeTour.title}
+                {tour.title}
               </h3>
               <p className="text-sm md:text-lg font-normal text-gray-500 flex items-center mt-3">
                 <Location />
-                {storeTour.location}
+                {tour.location}
               </p>
             </div>
             <Button
@@ -60,9 +58,9 @@ const TourComp = ({ params }: { params: { id: string } }) => {
           </div>
           <Separator className="my-6" />
           {/* carousel */}
-          <TourCarousel />
+          <TourCarousel tour={tour} />
           {/* overview */}
-          <p className="mt-5 text-gray-500">{storeTour.description}</p>
+          <p className="mt-5 text-gray-500">{tour.description}</p>
         </div>
       ) : (
         <Suspense fallback={<Loading />} />

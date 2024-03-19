@@ -28,7 +28,7 @@ const data = [
     id: 3,
     img: "/hero/hero_carousel-3.jpg",
     title: "Luxury Redefined: Opulent Escapes",
-    desc: "Experience luxury redefined with Viji Tours & Travels. From opulent accommodations to exclusive experiences, elevate your travel dreams. Discover elegance and sophistication.",
+    desc: "Experience luxury redefined with Viji Tours & Travels. From opulent accommodations to exclusive experiences, elevate your travel dreams. Discover elegance and sophistication",
   },
   {
     id: 4,

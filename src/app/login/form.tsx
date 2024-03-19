@@ -10,8 +10,8 @@ export default function Form() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const response = await signIn("credentials", {
-      Email: formData.get("Email"),
-      Password: formData.get("Password"),
+      Email: formData.get("email"),
+      Password: formData.get("password"),
       redirect: false,
     });
 
@@ -29,14 +29,14 @@ export default function Form() {
       className="flex flex-col gap-2 mx-auto max-w-md mt-10"
     >
       <input
-        name="Email"
+        name="email"
         className="border border-black text-black"
         type="email"
         placeholder="enter your email"
         required
       />
       <input
-        name="Password"
+        name="password"
         className="border border-black  text-black"
         type="password"
         placeholder="enter your password"

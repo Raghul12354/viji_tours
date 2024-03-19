@@ -32,7 +32,7 @@ const Modal = () => {
               Your form has been submitted successfully.
             </h2>
             <p className="pt-5 text-gray-700 md:text-lg text-base font-medium">
-              Our team is ready to help you right away. You'll hear from us
+              Our team is ready to help you right away. You&apos;ll hear from us
               soon!
             </p>
           </div>

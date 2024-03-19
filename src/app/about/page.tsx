@@ -1,7 +1,7 @@
 import Banner from "@/components/about/Banner";
 import Image from "next/image";
 
-// add: how we work-icons, images and sizes,content  
+// add: how we work-icons, images and sizes,content
 const about = () => {
   return (
     <section>
@@ -17,17 +17,19 @@ const about = () => {
             className="rounded-md order-2 md:order-1"
           />
           <div className="order-1 md:order-2">
-            <h6 className="uppercase text-base md:text-xl font-bold">About us</h6>
+            <h6 className="uppercase text-base md:text-xl font-bold">
+              About us
+            </h6>
             <h3 className="text-3xl md:text-4xl font-semibold my-5">
               Welcome to Viji Tours and Travels, where unforgettable travel
               experiences await you worldwide.
             </h3>
             <p className="text-base md:text-lg text-gray-500 ">
               We specialize in curating unique and immersive journeys that cater
-              to every traveler's wanderlust. Whether you're dreaming of
-              exploring exotic destinations, embarking on thrilling adventures,
-              or simply unwinding in luxury, we're here to turn your travel
-              dreams into reality.
+              to every traveler&apos;s wanderlust. Whether you&apos;re dreaming
+              of exploring exotic destinations, embarking on thrilling
+              adventures, or simply unwinding in luxury, we&apos;re here to turn
+              your travel dreams into reality.
             </p>
             <p className="text-base md:text-lg text-gray-500  mt-3">
               With our passion for exploration and commitment to exceptional
@@ -43,10 +45,10 @@ const about = () => {
             <h6 className="uppercase text-xl font-bold mb-5">Our mission</h6>
             <p className="text-base md:text-lg text-gray-500">
               We specialize in curating unique and immersive journeys that cater
-              to every traveler's wanderlust. Whether you're dreaming of
-              exploring exotic destinations, embarking on thrilling adventures,
-              or simply unwinding in luxury, we're here to turn your travel
-              dreams into reality.
+              to every traveler&apos;s wanderlust. Whether you&apos;re dreaming
+              of exploring exotic destinations, embarking on thrilling
+              adventures, or simply unwinding in luxury, we&apos;re here to turn
+              your travel dreams into reality.
             </p>
             <p className="text-base md:text-lg text-gray-500 mt-3">
               With our passion for exploration and commitment to exceptional
@@ -76,10 +78,10 @@ const about = () => {
             <h6 className="uppercase text-xl font-bold mb-5">Our Process</h6>
             <p className="text-base md:text-lg text-gray-500">
               We specialize in curating unique and immersive journeys that cater
-              to every traveler's wanderlust. Whether you're dreaming of
-              exploring exotic destinations, embarking on thrilling adventures,
-              or simply unwinding in luxury, we're here to turn your travel
-              dreams into reality.
+              to every traveler&apos;s wanderlust. Whether you&apos;re dreaming
+              of exploring exotic destinations, embarking on thrilling
+              adventures, or simply unwinding in luxury, we&apos;re here to turn
+              your travel dreams into reality.
             </p>
             <p className="text-base md:text-lg text-gray-500 mt-3">
               With our passion for exploration and commitment to exceptional

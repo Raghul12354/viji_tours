@@ -1,31 +1,22 @@
+import { sql } from "@vercel/postgres"
 import { NextResponse } from "next/server";
-import { getData } from "@/components/destinations/data";
 
-export const GET = async (req: Request, res: Response) => {
+export const GET = async () => {
     try {
-        const data = getData();
-        // console.log('Fetched data:', data); 
-        return NextResponse.json({ message: 'success bro', data }, { status: 200 })
+        const res = await sql`SELECT * FROM tours`
+        const data = res.rows
+        return NextResponse.json({ message: "Fetched tours data successfully", data }, { status: 200 })
     } catch (error) {
-        return NextResponse.json({ message: 'error occurred', error }, { status: 500 })
+        return NextResponse.json({ message: "error in fetching tours data" }, { status: 500 })
     }
 }
 
-// export const POST = async (req: Request, res: Response) => {
-//     const { id, title, description } = await req.json();
-//     try {
-//         const postdata = {
-//             img: "", // Dummy img
-//             days: "", // Dummy days
-//             nights: "", // Dummy nights
-//             location: "", // Dummy location
-//             id,
-//             title,
-//             description
-//         };
-//         postData(postdata)
-//         return NextResponse.json({ message: 'post success bro', postdata }, { status: 200 })
-//     } catch (error) {
-//         return NextResponse.json({ message: 'post error occurred', error }, { status: 500 })
-//     }
-// }
+export const POST = async (req: Request) => {
+    try {
+        const { title, img, location, description } = await req.json()
+        const res = await sql`INSERT INTO tours (title, img, location, description) VALUES (${title}, ${img}, ${location}, ${description})`
+        return NextResponse.json({ message: "Inserted tours data into db" }, { status: 200 })
+    } catch (error) {
+        return NextResponse.json({ message: "error in Inserting tours data into db" }, { status: 500 })
+    }
+}

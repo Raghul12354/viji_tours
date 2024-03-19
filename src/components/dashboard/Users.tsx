@@ -97,7 +97,7 @@ const Users = () => {
               return (
                 <tr
                   key={id}
-                  className="text-center hover:scale-100 transition-all duration-300 hover:shadow-2xl h-16 min-h-20"
+                  className="text-center hover:scale-100 transition-all duration-300 hover:shadow-2xl h-16 min-h-20 "
                 >
                   <td className="table_data">{id}</td>
                   <td className="table_data">{name}</td>

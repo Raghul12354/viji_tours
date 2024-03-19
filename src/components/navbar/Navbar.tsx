@@ -13,7 +13,7 @@ export const LinkComp = ({
 }) => {
   return (
     <Link
-      className="text-lg md:text-xl font-medium capitalize hover:opacity-70"
+      className="text-lg md:text-xl font-medium capitalize hover:text-yellow-400 transition-all duration-200"
       href={linkProp}
     >
       {linkName}
@@ -48,8 +48,8 @@ const Navbar = () => {
       </nav>
       {/* btn */}
       <Button
-        linkProp="/booking"
-        nameProp="enquire now"
+        linkProp="/destinations"
+        nameProp="Explore more"
         classProp={`md:block hidden text-base`}
       />
       {/* mobile-menu */}

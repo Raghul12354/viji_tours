@@ -1,26 +1,30 @@
-import Link from "next/link";
+"use client"
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Location from "@/components/Icons/Location";
-import Tour from "@/components/destinations/Tour";
+import Link from "next/link";
 
-// const apiUrl = `${process.env.NEXT_PUBLIC_TOUR_URL}/api/destinations`;
+export default function DummyPage() {
+  const [tour, setTour] = useState([]);
 
-// const GetAllTours = async () => {
-//   const response = await fetch('/api/destinations', {
-//     next: { revalidate: 0 },
-//   });
-//   const allTour = await response.json();
-//   return allTour.data;
-// };
+  useEffect(() => {
+    const fetchTour = async () => {
+      try {
+        const response = await fetch("/api/destinations",{ next: { revalidate: 0 } });
+        const data = await response.json();
+        setTour(data.data);
+      } catch (error) {
+        console.error("Error fetching tour data:", error);
+      }
+    };
 
-export default function Destinations() {
-  // const tour = await GetAllTours();
-  // console.log({ tour });
+    fetchTour();
+  }, []);
+
   return (
     <main className="px-6 md:px-48 min-h-screen min-w-screen">
-      <Tour />
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-10">
-        {tour.map((items: any) => {
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-10">
+        {tour.map((items) => {
           const { id, title, location, description, img } = items;
           return (
             <div
@@ -43,9 +47,9 @@ export default function Destinations() {
                 </p>
                 <h5 className="text-xl font-medium capitalize">{title}</h5>
                 <p className="text-gray-500 text-xs md:text-sm">
-                  {description.substring(0, 120)}...
+                  {description}
                 </p>
-                <Link className="w-fit" href={`/destinations/${id}`}>
+                <Link href={`/destinations/${id}`}>
                   <button className="bg-yellow-400 font-medium text-sm md:text-base px-5 py-2 rounded hover:bg-yellow-500 mt-3">
                     Explore More
                   </button>
@@ -54,7 +58,7 @@ export default function Destinations() {
             </div>
           );
         })}
-      </div> */}
+      </div>
     </main>
   );
 }

@@ -33,7 +33,7 @@ const Footer = () => {
                 className="object-contain"
               />
             </Link>
-            <q className=" w-1/2 md:w-[70%] font-medium md:text-lg leading-snug my-3">
+            <q className="w-1/2 md:w-[70%] font-medium md:text-lg leading-snug my-3">
               Discover Your World, One Journey at a Time!
             </q>
           {/* social icons */}
