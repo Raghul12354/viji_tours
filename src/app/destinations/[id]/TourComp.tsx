@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loading from "../loading";
 import { Separator } from "@/components/ui/separator";
 import TourCarousel from "@/components/destinations/TourCarousel";
@@ -36,7 +36,7 @@ const TourComp = ({ params }: { params: { id: string } }) => {
   }, [params.id]);
   //   console.log(tour, "bro log");
   return (
-    <div>
+    <main>
       {tour ? (
         <div className="bg-custom_white m-6 md:mx-40 max-w-screen h-screen my-10 p-6 md:p-16 shadow-2xl rounded-md">
           {/* title and location */}
@@ -63,9 +63,9 @@ const TourComp = ({ params }: { params: { id: string } }) => {
           <p className="mt-5 text-gray-500">{tour.description}</p>
         </div>
       ) : (
-        <Suspense fallback={<Loading />} />
+        <Loading />
       )}
-    </div>
+    </main>
   );
 };
 
