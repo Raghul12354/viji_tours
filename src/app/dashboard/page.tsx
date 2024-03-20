@@ -1,10 +1,11 @@
-import Users from "@/components/dashboard/Users";
-import Link from "next/link";
-
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-// ** auth, add: how we work section and animations add:Faq in booking form page and policy information also
+import Users from "@/components/dashboard/Users";
+import Logout from "@/components/Logout";
+import Link from "next/link";
+
+// ** add: how we work section and animations add:Faq in booking form page and policy information also
 
 const DashboardPage = async () => {
   const session = await getServerSession();
@@ -13,7 +14,7 @@ const DashboardPage = async () => {
   }
   return (
     <div>
-      {!!session && <Link href="/logout">Logout</Link>}
+      {!!session && <Logout />}
       <Users />
     </div>
   );
