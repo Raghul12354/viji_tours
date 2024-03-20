@@ -26,11 +26,11 @@ interface DateCompProps {
 export function StartDate({ nameProp, dateProp }: DateCompProps) {
   const [date, setDate] = React.useState<Date>(new Date()); // Initialize with the current date
 
-  const handleDateSelect = (selectedDate: Date | undefined ) => {
+  const handleDateSelect = (selectedDate: Date | undefined) => {
     if (selectedDate) {
-      console.log("Selected Startdate:", selectedDate);
+      // console.log("Selected Startdate:", selectedDate);
       setDate(selectedDate);
-      dateProp(selectedDate); 
+      dateProp(selectedDate);
     }
   };
 
@@ -67,7 +67,7 @@ export function StartDate({ nameProp, dateProp }: DateCompProps) {
           </SelectContent>
         </Select>
         <div className="rounded-md border">
-          <Calendar mode="single" selected={date} onSelect={handleDateSelect}  />
+          <Calendar className="focus:bg-none" mode="single" selected={date} onSelect={handleDateSelect} />
         </div>
       </PopoverContent>
     </Popover>

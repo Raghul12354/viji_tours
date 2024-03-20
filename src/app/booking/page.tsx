@@ -79,7 +79,7 @@ const Booking = () => {
       }
       setOpenModal(true);
       const data = await response.json();
-      console.log("Form submitted successfully:", data);
+      // console.log("Form submitted successfully:", data);
     } catch (error) {
       console.error("Error while submitting form:", error);
       // If validation fails, set the errors state

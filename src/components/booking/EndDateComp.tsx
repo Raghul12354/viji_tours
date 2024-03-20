@@ -28,7 +28,7 @@ export function EndDateComp({ nameProp, endDateProp }: DateCompProps) {
 
   const handleDateSelect = (selectedDate: Date | undefined ) => {
     if (selectedDate) {
-      console.log("Selected EndDate:", selectedDate);
+      // console.log("Selected EndDate:", selectedDate);
       setDate(selectedDate);
       endDateProp(selectedDate); 
     }
@@ -40,7 +40,7 @@ export function EndDateComp({ nameProp, endDateProp }: DateCompProps) {
         <Button
           variant={"outline"}
           className={cn(
-            "w-full border-b-2 border-t-0 border-l-0 border-r-0 justify-start text-left font-normal",
+            "w-full border-b-2 border-t-0 border-l-0 border-r-0 justify-start text-left",
             !date && "text-muted-foreground"
           )}
         >
