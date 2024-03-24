@@ -21,18 +21,13 @@ const handler = nextAuth({
                 console.log({ credentials });
                 const response = await sql`SELECT * FROM login WHERE email=${credentials?.email}`
                 const user = response.rows[0];
-                // const user = response.rows.length > 0 ? response.rows[0] : null;
-                console.log("User:", user);
-                // if (!user || !user.Password) {
-                //     console.log("User not found or password missing");
-                //     return null;
-                // }
+                // console.log("User:", user);
                 const passwordCorrect = await compare(
                     credentials?.password || "",
                     user.password
                 );
 
-                console.log({ passwordCorrect });
+                // console.log({ passwordCorrect });
 
                 if (passwordCorrect) {
                     return {

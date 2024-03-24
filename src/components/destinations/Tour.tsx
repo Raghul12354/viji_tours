@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
+
 import Location from "@/components/Icons/Location";
 import Loading from "@/app/destinations/loading";
 
@@ -26,7 +28,7 @@ const Tour = () => {
 
     fetchTours();
   }, []);
-  console.log(allTour);
+  // console.log(allTour);
 
   return (
     <main className="px-6 md:px-48 min-h-screen min-w-screen">

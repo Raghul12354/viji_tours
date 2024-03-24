@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Loading from "../loading";
 import { Separator } from "@/components/ui/separator";
 import TourCarousel from "@/components/destinations/TourCarousel";
 import Location from "@/components/Icons/Location";
 import Button from "@/components/button/Button";
+import LoadingId from "./loading";
 
 interface Tour {
   id: string;
@@ -15,9 +15,7 @@ interface Tour {
 }
 
 async function GetTours(id: number | string) {
-  const res = await fetch(`/api/destinations/${id}`, {
-    next: { revalidate: 0 },
-  });
+  const res = await fetch(`/api/destinations/${id}`);
   const data = await res.json();
   return data.singleTour;
 }
@@ -63,7 +61,7 @@ const TourComp = ({ params }: { params: { id: string } }) => {
           <p className="mt-5 text-gray-500">{tour.description}</p>
         </div>
       ) : (
-        <Loading />
+        <LoadingId />
       )}
     </main>
   );
