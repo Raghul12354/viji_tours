@@ -33,7 +33,7 @@ const ContactUs = () => {
           className="object-cover"
         />
       </div>
-      <article className="bg-black text-white md:w-[35%] w-full md:h-[50vh] h-auto md:p-16 p-8 relative md:absolute md:right-40 md:top-20 z-10 mt-10 md:mt-0">
+      <article className="bg-[rgb(52,52,56)] text-white md:w-[35%] w-full md:h-[50vh] h-auto md:p-16 p-8 relative md:absolute md:right-40 md:top-20 z-10 mt-10 md:mt-0">
         <div className="bg-yellow-400 w-10 h-10 absolute -top-4 -left-4"></div>
         <h4 className="font-semibold text-2xl md:text-3xl md:mb-10 mb-6">
           Info
