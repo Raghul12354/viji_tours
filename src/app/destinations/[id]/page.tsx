@@ -1,7 +1,8 @@
 import TourComp from "./TourComp";
+import { revalidatePath } from 'next/cache'
 
 export async function generateStaticParams() {
-  const res = await fetch("https://viji-tours.vercel.app/api/destinations");
+  const res = await fetch("https://viji-tours.vercel.app/api/destinations", { cache: 'no-store' });
   const data = await res.json();
 
   return data.data.map((tour: any) => ({
