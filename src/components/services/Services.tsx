@@ -16,7 +16,7 @@ const Services = () => {
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 place-items-center mt-5 md:mt-10">
         <Link
           href="/destinations"
-          className="relative bg-black h-[220px] md:h-[500px] w-full overflow-hidden"
+          className="relative bg-black h-[220px] md:h-[500px] w-full overflow-hidden rounded-xl"
         >
           <Image
             src="/services/tour_bg.jpg"
@@ -24,7 +24,7 @@ const Services = () => {
             fill
             sizes="(min-width: 780px) calc(50vw - 180px), calc(100vw - 48px)"
             className="opacity-70 hover:opacity-90 transition-transform duration-300
-              hover:scale-110 z-10"
+              hover:scale-110 z-10 object-cover object-center"
           />
           <div className="relative flex items-center justify-center h-full">
             <span className="bg-gray-300 opacity-50 backdrop-blur-sm h-10 w-full" />
@@ -39,7 +39,7 @@ const Services = () => {
         </Link>
         <Link
           href="/contact"
-          className="relative bg-black h-[220px] md:h-[500px] w-full overflow-hidden"
+          className="relative bg-black h-[220px] md:h-[500px] w-full overflow-hidden rounded-xl"
         >
           <Image
             src="/services/travels.jpg"
@@ -47,7 +47,7 @@ const Services = () => {
             fill
             sizes="(min-width: 780px) calc(50vw - 180px), calc(100vw - 48px)"
             className="opacity-70 hover:opacity-90 transition-transform duration-300
-              hover:scale-110 z-10"
+              hover:scale-110 z-10 object-cover object-center"
           />
           <div className="relative flex items-center justify-center h-full">
             <span className="bg-gray-300 opacity-50 backdrop-blur-sm h-10 w-full" />

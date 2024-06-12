@@ -57,7 +57,7 @@ const Users = () => {
   };
 
   return (
-    <div className="px-6 md:px-20 min-h-screen max-w-screen">
+    <div className="min-h-full max-w-screen">
       {/*
         <div className="flex justify-center">
           <FormComponent />

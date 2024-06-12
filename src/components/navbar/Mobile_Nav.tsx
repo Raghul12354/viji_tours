@@ -28,7 +28,7 @@ export function Mobile_Nav() {
           onClick={() => setOpen(false)}
           className="flex justify-end w-full pr-5"
         >
-          <button className="border-none w-fit">
+          <button className="border-none w-fit mt-5">
             <CloseIcon classProp="w-10 h-10 cursor-pointer" />
           </button>
         </DrawerClose>

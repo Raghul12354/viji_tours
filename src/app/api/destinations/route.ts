@@ -20,3 +20,13 @@ export const POST = async (req: Request) => {
         return NextResponse.json({ message: "error in Inserting tours data into db" }, { status: 500 })
     }
 }
+
+export const DELETE = async (req: Request) => {
+    try {
+        const { id } = await req.json();
+        const res = await sql`DELETE FROM tours WHERE id = ${id}`
+        return NextResponse.json({ message: "successfully deleted the tour" }, { status: 200 })
+    } catch (error) {
+        return NextResponse.json({ message: "error deleting the tour" }, { status: 500 })
+    }
+}

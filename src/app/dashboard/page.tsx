@@ -2,8 +2,8 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 import Users from "@/components/dashboard/Users";
-import Logout from "@/components/Logout";
-import Link from "next/link";
+import Logout from "@/components/dashboard/Logout";
+import UpdateTours from "@/components/dashboard/updateTours";
 
 // ** add: how we work section and animations add:Faq in booking form page and policy information also
 
@@ -13,10 +13,13 @@ const DashboardPage = async () => {
     redirect("/login");
   }
   return (
-    <div>
+    <div className="px-6 md:px-20">
+      <div className="flex justify-end mt-10">
       {!!session && <Logout />}
-      <Users />
-    </div>
+      </div>
+        <Users />
+        <UpdateTours />
+      </div>
   );
 };
 

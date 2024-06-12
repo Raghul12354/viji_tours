@@ -31,9 +31,9 @@ const Tour = () => {
   // console.log(allTour);
 
   return (
-    <main className="px-6 md:px-48 min-h-screen min-w-screen">
+    <main className="px-6 xl:max-w-screen-2xl lg:max-w-5xl md:max-w-4xl sm:max-w-2xl max-w-lg min-h-screen flex mx-auto">
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-12 py-10">
           {allTour.map((items: any) => {
             const { id, title, location, description, img } = items;
             return (
@@ -46,7 +46,7 @@ const Tour = () => {
                     src={img}
                     alt={title}
                     fill={true}
-                    sizes="(min-width: 780px) calc(33.33vw - 160px), calc(100vw - 48px)"
+                    sizes="(min-width: 1200px) calc(33.33vw - 160px), calc(100vw - 48px)"
                     className="object-cover rounded-t-xl"
                   />
                 </div>

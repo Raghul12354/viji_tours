@@ -43,7 +43,7 @@ const Testimonials = () => {
             key={items.id}
             className={`${items.id === 3 ? "md:col-span-2 xl:col-span-1" : ""}`}
           >
-            <article className="bg-white shadow-xl p-10 rounded-xl w-full min-h-[35vh] xl:min-h-[50vh] text-pretty flex items-center flex-col justify-between gap-5 xl:gap-0">
+            <article className="bg-white shadow-xl p-10 rounded-xl w-full min-h-[35vh] xl:min-h-[45vh] text-pretty flex items-center flex-col justify-between gap-5 xl:gap-0">
               <p className="text-sm xl:text-base font-medium">{items.para}</p>
               <Image
                 className="w-14 md:w-16 h-14 md:h-16 rounded-full object-cover object-center"
