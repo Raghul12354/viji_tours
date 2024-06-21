@@ -38,7 +38,7 @@ const Services = () => {
           </div>
         </Link>
         <Link
-          href="/contact"
+          href="/destinations"
           className="relative bg-black h-[220px] md:h-[500px] w-full overflow-hidden rounded-xl"
         >
           <Image
