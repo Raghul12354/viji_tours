@@ -60,14 +60,14 @@ const PopularTours = () => {
             <Link
               key={id}
               href={link}
-              className={`${gridStyle} relative grid grid-cols-1 items-end pb-7 text-white`}
+              className={`${gridStyle} h-[200px] relative grid grid-cols-1 items-end pb-7 text-white`}
             >
               <Image
                 src={img}
                 alt={title}
                 fill
                 sizes="100vw"
-                className="object-cover -z-10 rounded-2xl"
+                className="object-cover -z-10 rounded-2xl object-center"
               />
               <div className="flex justify-between px-7 items-center">
                 <div>
